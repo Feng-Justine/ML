@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection System</title>
+</head>
+
+<body>
+
+    <h1>Fraud Detection System</h1>
+
+    <p>Enter transaction details to check whether the transaction is fraudulent.</p>
+
+    <form method="POST">
+
+        <label for="step">Step:</label>
+        <input type="number" id="step" name="step" required>
+        <br><br>
+
+        <label for="type">Transaction Type:</label>
+        <select id="type" name="type" required>
+            <option value="">Select transaction type</option>
+            <option value="PAYMENT">PAYMENT</option>
+            <option value="TRANSFER">TRANSFER</option>
+            <option value="CASH_OUT">CASH_OUT</option>
+            <option value="DEBIT">DEBIT</option>
+            <option value="CASH_IN">CASH_IN</option>
+        </select>
+        <br><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" step="any" id="amount" name="amount" required>
+        <br><br>
+
+        <label for="oldbalanceOrig">Old Balance Origin:</label>
+        <input type="number" step="any" id="oldbalanceOrig" name="oldbalanceOrig" required>
+        <br><br>
+
+        <label for="newbalanceOrig">New Balance Origin:</label>
+        <input type="number" step="any" id="newbalanceOrig" name="newbalanceOrig" required>
+        <br><br>
+
+        <label for="oldbalanceDest">Old Balance Destination:</label>
+        <input type="number" step="any" id="oldbalanceDest" name="oldbalanceDest" required>
+        <br><br>
+
+        <label for="newbalanceDest">New Balance Destination:</label>
+        <input type="number" step="any" id="newbalanceDest" name="newbalanceDest" required>
+        <br><br>
+
+        <button type="submit">Check Transaction</button>
+
+
+    </form>
+
+    {% if result %}
+    <h2>{{ result }}</h2>
+{% endif %}
+
+</body>
+</html>

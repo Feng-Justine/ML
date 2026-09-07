@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TRA Tax Revenue Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 450px;
+            margin: 70px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 13px;
+            border: none;
+            border-radius: 6px;
+            background-color: #222;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #444;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #eef5ee;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .result h2 {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>TRA Tax Revenue Prediction</h1>
+
+        <p class="description">
+            Predict Tanzania's tax revenue as a percentage of GDP
+            using historical tax revenue data.
+        </p>
+
+        <form method="POST">
+
+            <label for="lag1">
+                Previous Year's Tax Revenue (% of GDP)
+            </label>
+
+            <input
+                type="number"
+                step="any"
+                id="lag1"
+                name="lag1"
+                placeholder="Example: 11.49"
+                required
+            >
+
+
+            <label for="lag2">
+                Tax Revenue Two Years Ago (% of GDP)
+            </label>
+
+            <input
+                type="number"
+                step="any"
+                id="lag2"
+                name="lag2"
+                placeholder="Example: 11.79"
+                required
+            >
+
+
+            <button type="submit">
+                Predict Tax Revenue
+            </button>
+
+        </form>
+
+
+        {% if result is not none %}
+
+        <div class="result">
+
+            <h2>
+                Predicted Tax Revenue:
+                {{ result }}% of GDP
+            </h2>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
