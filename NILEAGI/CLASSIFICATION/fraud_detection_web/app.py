@@ -36,14 +36,33 @@ def home():
         # Make prediction
         prediction = model.predict(transaction)[0]
 
+        # Get model probabilities
+        probabilities = model.predict_proba(transaction)[0]
+
+        # Debugging information
+        print("Transaction:")
+        print(transaction)
+        print("Prediction:", prediction)
+        print("Probabilities:", probabilities)
+
+        # Confidence = probability of the predicted class
+        confidence = probabilities[int(prediction)] * 100
+        confidence = round(confidence, 1)
+
         # Display result
         if prediction == 1:
             result = "FRAUDULENT TRANSACTION"
         else:
             result = "LEGITIMATE TRANSACTION"
 
-        return render_template("index.html", result=result)
+        # Send result and confidence to the webpage
+        return render_template(
+            "index.html",
+            result=result,
+            confidence=confidence
+        )
 
+    # Normal page load
     return render_template("index.html")
 
 

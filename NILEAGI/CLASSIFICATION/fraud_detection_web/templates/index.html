@@ -53,9 +53,11 @@
 
 
     </form>
-
-    {% if result %}
+{% if result %}
     <h2>{{ result }}</h2>
+
+    <p>Model Confidence: {{ confidence }}%</p>
+
 {% endif %}
 
 </body>

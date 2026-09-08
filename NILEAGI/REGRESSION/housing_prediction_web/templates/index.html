@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Housing Price Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>California Housing Price Prediction</h1>
+
+    <p class="description">
+        Enter housing information to predict the median house value.
+    </p>
+
+    <form method="POST">
+
+        <label>Longitude</label>
+        <input type="number" step="any" name="longitude" required>
+
+        <label>Latitude</label>
+        <input type="number" step="any" name="latitude" required>
+
+        <label>Housing Median Age</label>
+        <input type="number" step="any" name="housing_median_age" required>
+
+        <label>Total Rooms</label>
+        <input type="number" step="any" name="total_rooms" required>
+
+        <label>Total Bedrooms</label>
+        <input type="number" step="any" name="total_bedrooms" required>
+
+        <label>Population</label>
+        <input type="number" step="any" name="population" required>
+
+        <label>Households</label>
+        <input type="number" step="any" name="households" required>
+
+        <label>Median Income</label>
+        <input type="number" step="any" name="median_income" required>
+
+        <label>Ocean Proximity</label>
+
+        <select name="ocean_proximity" required>
+            <option value="NEAR BAY">NEAR BAY</option>
+            <option value="NEAR OCEAN">NEAR OCEAN</option>
+            <option value="ISLAND">ISLAND</option>
+            <option value="INLAND">INLAND</option>
+            <option value="<1H OCEAN">&lt;1H OCEAN</option>
+        </select>
+
+        <button type="submit">
+            Predict House Value
+        </button>
+
+    </form>
+
+    {% if prediction %}
+
+    <div class="result">
+
+        <h2>Prediction Result</h2>
+
+        <div class="prediction">
+            {{ prediction }}
+        </div>
+
+        <p>
+            <strong>Model Confidence:</strong>
+            {{ confidence }}
+        </p>
+
+        <p>
+            <strong>Estimated Prediction Range:</strong><br>
+            {{ lower_range }} – {{ upper_range }}
+        </p>
+
+    
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

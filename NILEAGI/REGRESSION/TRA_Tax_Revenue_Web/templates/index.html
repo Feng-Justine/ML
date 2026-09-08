@@ -128,18 +128,18 @@
         </form>
 
 
-        {% if result is not none %}
+        {% if result is defined %}
 
-        <div class="result">
+        <hr>
 
-            <h2>
-                Predicted Tax Revenue:
-                {{ result }}% of GDP
-            </h2>
+        <h2>Predicted Tax Revenue</h2>
+        <p>{{ result }}% of GDP</p>
 
+        <h2>Model Confidence</h2>
+        <p>{{ confidence }}%</p>
+
+         {% endif %}
         </div>
-
-        {% endif %}
 
     </div>
 
