@@ -858,14 +858,19 @@ Therefore:
 
 **p₁ + p₂ + ... + pₖ = 1**
 
+
 ## Prediction
 
-The predicted class is the class with the highest probability.
+The predicted class is the class with the highest estimated probability:
 
 $$
-\hat{y} =
-\underset{k}{\operatorname{argmax}}\;
-\hat{p}_k
+\hat{y} = \underset{k}{\operatorname{argmax}}\;\sigma(s(x))_k
+$$
+
+Since Softmax preserves the order of the scores, this is equivalent to:
+
+$$
+\hat{y} = \underset{k}{\operatorname{argmax}}\;s_k(x)
 $$
 
 ## Cross-Entropy Cost
