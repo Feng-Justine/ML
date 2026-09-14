@@ -473,7 +473,10 @@ It adds an L2 penalty to the cost function.
 The Ridge cost function is:
 
 $$
-J(\theta) = \operatorname{MSE}(\theta) + \alpha \sum_{i=1}^{n} \theta_i^2
+J(\theta) =
+MSE(\theta)
++
+\alpha \sum_{i=1}^{n}\theta_i^2
 $$
 
 The summation applies to the model weights, not the bias term.
@@ -522,7 +525,10 @@ Lasso uses an L1 penalty.
 ## Lasso Cost Function
 
 $$
-J(\theta) = \operatorname{MSE}(\theta) + \alpha \sum_{i=1}^{n} |\theta_i|
+J(\theta) =
+MSE(\theta)
++
+\alpha \sum_{i=1}^{n}|\theta_i|
 $$
 
 The penalty is based on the absolute values of the model weights.
@@ -571,9 +577,13 @@ It uses both L1 and L2 regularization.
 ## Cost Function
 
 $$
-J(\theta) = \operatorname{MSE}(\theta)
-+ r\alpha \sum_{i=1}^{n} |\theta_i|
-+ \frac{1-r}{2}\alpha \sum_{i=1}^{n} \theta_i^2
+J(\theta) =
+MSE(\theta)
++
+r\alpha \sum_{i=1}^{n}|\theta_i|
++
+\frac{1-r}{2}\alpha
+\sum_{i=1}^{n}\theta_i^2
 $$
 
 Where:
