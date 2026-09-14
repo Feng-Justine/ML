@@ -472,7 +472,9 @@ It adds an L2 penalty to the cost function.
 
 The Ridge cost function is:
 
-**J(θ) = MSE(θ) + (α/2) × Σθᵢ²**
+$$
+J(\theta) = \operatorname{MSE}(\theta) + \alpha \sum_{i=1}^{n} \theta_i^2
+$$
 
 The summation applies to the model weights, not the bias term.
 
@@ -519,7 +521,9 @@ Lasso uses an L1 penalty.
 
 ## Lasso Cost Function
 
-**J(θ) = MSE(θ) + α × Σ|θᵢ|**
+$$
+J(\theta) = \operatorname{MSE}(\theta) + \alpha \sum_{i=1}^{n} |\theta_i|
+$$
 
 The penalty is based on the absolute values of the model weights.
 
@@ -566,7 +570,11 @@ It uses both L1 and L2 regularization.
 
 ## Cost Function
 
-**J(θ) = MSE(θ) + rα × Σ|θᵢ| + ((1 − r) / 2)α × Σθᵢ²**
+$$
+J(\theta) = \operatorname{MSE}(\theta)
++ r\alpha \sum_{i=1}^{n} |\theta_i|
++ \frac{1-r}{2}\alpha \sum_{i=1}^{n} \theta_i^2
+$$
 
 Where:
 
@@ -662,7 +670,13 @@ This score is then passed through the logistic function, also called the sigmoid
 
 ## Sigmoid Function
 
-**σ(t) = 1 / (1 + exp(−t))**
+$$
+\hat{p} = \sigma(x^T\theta)
+$$
+
+$$
+\sigma(t) = \frac{1}{1 + \exp(-t)}
+$$
 
 The sigmoid function converts any real-valued number into a value between 0 and 1.
 
@@ -706,7 +720,13 @@ The cost for one training instance is called **log loss**.
 
 For one training instance:
 
-**c(θ) = −y log(p̂) − (1 − y) log(1 − p̂)**
+$$
+J(\theta) =
+-\left[
+y\log(\hat{p}) +
+(1-y)\log(1-\hat{p})
+\right]
+$$
 
 Where:
 
@@ -817,13 +837,20 @@ The model calculates a score for every class.
 
 For class k:
 
-**sₖ(x) = θₖᵀx**
+$$
+s_k(x) = x^T\theta^{(k)}
+$$
 
 The scores are converted into probabilities using the Softmax function.
 
 ## Softmax Probability
 
-**pₖ = exp(sₖ) / Σ exp(sⱼ)**
+$$
+\hat{p}_k =
+\sigma(s(x))_k =
+\frac{\exp(s_k(x))}
+{\sum_{j=1}^{K}\exp(s_j(x))}
+$$
 
 The probabilities of all classes add up to 1.
 
@@ -835,7 +862,11 @@ Therefore:
 
 The predicted class is the class with the highest probability.
 
-**ŷ = argmax(pₖ)**
+$$
+\hat{y} =
+\underset{k}{\operatorname{argmax}}\;
+\hat{p}_k
+$$
 
 ## Cross-Entropy Cost
 
