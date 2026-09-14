@@ -55,7 +55,14 @@ The objective of training is to find the values of the parameters that produce p
 
 A common cost function for Linear Regression is Mean Squared Error (MSE).
 
-**MSE = (1/m) × Σ(ŷ⁽ⁱ⁾ − y⁽ⁱ⁾)²**
+$$
+MSE(X, h_\theta) =
+\frac{1}{m}
+\sum_{i=1}^{m}
+\left(
+\theta^T x^{(i)} - y^{(i)}
+\right)^2
+$$
 
 Where:
 
