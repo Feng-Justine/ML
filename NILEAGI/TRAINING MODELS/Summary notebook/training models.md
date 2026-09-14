@@ -864,13 +864,13 @@ Therefore:
 The predicted class is the class with the highest estimated probability:
 
 $$
-\hat{y} = \underset{k}{\operatorname{argmax}}\;\sigma(s(x))_k
+\hat{y} = \arg\max_k \sigma(s(x))_k
 $$
 
 Since Softmax preserves the order of the scores, this is equivalent to:
 
 $$
-\hat{y} = \underset{k}{\operatorname{argmax}}\;s_k(x)
+\hat{y} = \arg\max_k s_k(x)
 $$
 
 ## Cross-Entropy Cost
